@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-
 export default function HeroSection() {
   return (
     <section className="relative w-full h-[250px] md:h-[300px] lg:h-[350px] overflow-hidden font-sans m-auto">
