@@ -1,10 +1,8 @@
-import { locales, type Locale } from '@/i18n';
-import { notFound } from 'next/navigation';
-import { dir } from 'i18next';
-import "@/app/globals.css";
+import { Locale, locales } from "@/i18n";
+import { dir } from "i18next";
+import { notFound } from "next/navigation";
 
-// ✅ أزل async من الدالة هنا
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {

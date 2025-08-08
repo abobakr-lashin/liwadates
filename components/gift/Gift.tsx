@@ -19,9 +19,9 @@ export default function HeroSection() {
       {/* المحتوى فوق الخلفية */}
       <div className=" w-full flex flex-col justify-center items-center  text-white px-4 md:px-16 ">
     <div>
-            <h2 className="text-lg md:text-2xl m-auto font-bold mb-2">
-          "هويتكم تُعكس هويتكم.. ونحن نصنعها لأجلكم"
-        </h2>
+         <h2 className="text-lg md:text-2xl m-auto font-bold mb-2">
+  &quot;هويتكم تُعكس هويتكم.. ونحن نصنعها لأجلكم&quot;
+</h2>
         <p className="text-sm md:text-base mb-4 max-w-md">
           نمتلك مجموعة من العلامات التجارية نخلق بها أعلى جودة من المنتجات بأدق التفاصيل
         </p>
