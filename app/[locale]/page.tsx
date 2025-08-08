@@ -10,7 +10,7 @@ import AboutCompanySection from "@/components/7-AboutCompanySection/AboutCompany
 import ArticlesSliderSection from "@/components/8-ArticlesSliderSection/ArticlesSliderSection";
 import CustomerTestimonials from "@/components/9-CustomerTestimonials/CustomerTestimonials";
 import Footer from "@/components/10-footer/Footer";
-import Gift from "@/components/Gift/gift";
+import Gift from "@/components/gift/Gift";
 export default function HomePage() {
   return (
 
