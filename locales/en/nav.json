@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "export": "Export",
+    "institution_support": "Institutional Support",
+    "business_projects": "Business Projects",
+    "client_services": "Client Services",
+    "about": "About Us",
+    "contact": "Contact Us"
+  }
+}

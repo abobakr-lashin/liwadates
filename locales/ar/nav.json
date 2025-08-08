@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "export": "التصدير",
+    "institution_support": "دعم المؤسسات",
+    "business_projects": "مشاريع الأعمال",
+    "client_services": "خدمات الزبائن",
+    "about": "من نحن",
+    "contact": "تواصل معنا"
+  }
+}

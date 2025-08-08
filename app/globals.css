@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Bahij TheSansArabic';
+  src: url('../public/font/alfont_com_ArbFONTS-Bahij_TheSansArabic-Plain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Bahij TheSansArabic', sans-serif;
+
+}
+button:active,a:active{
+  scale: 0.95 !important;
+  transition: scale 0.1s ease-in-out;
+  cursor: pointer;
+
+}
+button:hover,a:hover{
+  cursor: pointer;
+
+}
