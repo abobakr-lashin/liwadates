@@ -1,7 +1,7 @@
 import { Locale, locales } from "@/i18n";
 import { dir } from "i18next";
 import { notFound } from "next/navigation";
-
+import "../globals.css"
 export default async function LocaleLayout({
   children,
   params,
