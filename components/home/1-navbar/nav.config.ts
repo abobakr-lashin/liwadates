@@ -47,5 +47,5 @@ export const navLinks: NavLink[] = [
   },
   { label: "المتجر", href: "/store" },
   { label: "قطاع الأعمال", href: "/business" },
-  { label: "خدمات المزارعين", href: "/farmers" },
+  { label: "خدمات المزارعين", href: "/Farmer_services" },
 ];

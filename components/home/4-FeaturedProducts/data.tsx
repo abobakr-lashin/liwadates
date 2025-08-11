@@ -1,13 +1,13 @@
 
 
-interface Product {
+interface Productss {
   title: string;
   description: string;
   priceRange: string;
   currency: string;
   image: string;
 }
- const products: Product[] = [
+ const products: Productss[] = [
   {
     title: 'تمر المدخنة الفاخر',
     description: 'بوكس التمور المغلف بأناقة - نكهة التمر المميزة بتغليف فاخر!',

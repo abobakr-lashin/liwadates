@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 import products from './data';
-import './style.css';
+// import './style.css';
 
 export default function FeaturedProducts() {
   const paginationRef = useRef<HTMLDivElement | null>(null);
@@ -37,7 +37,8 @@ export default function FeaturedProducts() {
 
 
         {/* Swiper */}
-        {isMounted && (
+        <div className="p-5 m-10">
+    {isMounted && (
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={30}
@@ -55,10 +56,11 @@ export default function FeaturedProducts() {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
+            className="overflow-visible swiper-container"
           >
             {products.map((product, idx) => (
               <SwiperSlide key={idx}>
-                <div className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full max-w-sm mx-auto">
+                <div className="rounded-2xl shadow-md overflow-hidden flex flex-col h-full  max-w-sm mx-auto">
                   <div className="bg-white flex items-center justify-center h-75 p-4">
                     <Image
                       src={product.image}
@@ -83,9 +85,11 @@ export default function FeaturedProducts() {
             ))}
           </Swiper>
         )}
+        </div>
+
 
         {/* النقاط + الأسهم تحت */}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center p-5 mt-9 ">
           <div className="flex items-center gap-4 bg-white/10 border-amber-50 justify-between w-50 rounded-full px-6 py-2">
             <button className="custom-prev-1 hover:text-yellow-300 transition">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
