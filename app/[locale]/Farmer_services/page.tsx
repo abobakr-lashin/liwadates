@@ -7,17 +7,13 @@ import Footer from "@/components/home/10-footer/Footer";
 import PackagingSection from "@/components/Farmer_services/PackagingSection/PackagingSection";
 
 export default function page() {
-  const buttonsData = [
-  { text: "اطلب مجموعة التعبئة", onClick: () => alert("تم الطلب") },
-  { text: "حصل على الكتالوج", onClick: () => alert("تحميل الكتالوج") },
-  { text: "الطلب", onClick: () => alert("تم الطلب") },
-];
+
 
 
 
   return (
     <div>
-{/* <Navbar/> */}
+<Navbar/>
 <Banner/>
 <SectionWithImage
   imageSrc="/Farmer_services/SectionWithImage.jpg"

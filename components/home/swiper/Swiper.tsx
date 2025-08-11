@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
+import { useState, useRef, useEffect,  ReactNode } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -8,12 +8,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./style.css"
 import Image from 'next/image';
-import  swiperdata  from './data';
+import swiperdata from './data';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
+interface Product {
+    image: StaticImport | string;
+    title: ReactNode | string;
+    description: ReactNode | string;
+    priceRange: ReactNode | string;
+    currency: ReactNode | string;
+}
 
-
-export default function SwiperData({ Products, ClassNameSwiperNext, ClassNameSwiperPrev,slidesPerViewSmall ,slidesPerViewbag}: swiperdata) {
+export default function SwiperData({ Products, ClassNameSwiperNext, ClassNameSwiperPrev, slidesPerViewSmall, slidesPerViewbag }: swiperdata) {
     const paginationRef = useRef<HTMLDivElement | null>(null);
     const [isReady, setIsReady] = useState(false);
 
@@ -44,7 +50,7 @@ export default function SwiperData({ Products, ClassNameSwiperNext, ClassNameSwi
                     }}
                     className="overflow-visible"
                 >
-                    {Products.map((product: { image: string | StaticImport; title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; priceRange: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; currency: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }, idx: Key | null | undefined) => (
+                    {Products.map((product: Product, idx: number) => (
                         <SwiperSlide key={idx}>
                             <div className="bg-white shadow-lg rounded-xl p-4 flex flex-col md:flex-row items-center gap-4 h-full">
                                 <div className="w-full md:w-1/3">

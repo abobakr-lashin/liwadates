@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import {
   FaInstagram,
@@ -15,7 +16,9 @@ export default function Footer() {
           {/* العمود الأخير أيقونات وحقوق */}
           <div className="flex flex-col justify-between">
             <div>
-              <img
+              <Image
+               width={144}
+                height={36}
                 src="/logo.png"
                 alt="Liwa Bates Logo"
                 className="mb-6 w-36 mx-auto md:mx-0"

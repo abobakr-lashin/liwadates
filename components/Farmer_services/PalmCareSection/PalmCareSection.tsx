@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./PalmImage.module.css";
 
 interface PalmCareSectionProps {
   imageSrc: string;
