@@ -48,7 +48,7 @@ export default function Footer() {
 
           {/* الأعمدة الأخرى مع الفواصل */}
           <div className="pr-6">
-            <h3 className="text-white font-semibold mb-4">التسويق عبر الانترنت وروابط</h3>
+            <h3 className="text-white font-semibold mb-4">التسويق عبر الانترنت </h3>
             <ul className="text-sm space-y-2 text-gray-400">
               <li>الشحن والتوصيل</li>
               <li>المتجر</li>

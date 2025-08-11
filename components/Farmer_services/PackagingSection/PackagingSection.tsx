@@ -16,7 +16,7 @@ const PackagingSection: React.FC<PackagingSectionProps> = ({
   return (
     <section className="bg-[#f9f6f3] rounded-xl mx-auto p-6 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-md max-w-8xl">
       {/* الصورة على اليمين */}
-      <div className="flex-shrink-0 w-full md:w-[560px] rounded-xl overflow-hidden shadow-lg">
+      <div className="flex-shrink-0 w-full md:w-[560px] rounded-xl overflow-hidden shadow-lg m-auto">
         <Image
           src={imageSrc}
           alt={title}
@@ -29,7 +29,7 @@ const PackagingSection: React.FC<PackagingSectionProps> = ({
       </div>
 
       {/* النص والأزرار على اليسار */}
-      <div className="flex flex-col text-right w-full md:w-1/2 gap-6">
+      <div className="flex flex-col text-right w-full md:w-1/2 gap-6 m-auto">
         <h2 className="text-2xl font-semibold text-[#77533C]">{title}</h2>
         <p className="text-gray-700 leading-relaxed text-base">{description}</p>
 

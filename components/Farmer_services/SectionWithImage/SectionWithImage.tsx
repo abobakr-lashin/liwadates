@@ -5,6 +5,8 @@ interface SectionProps {
   smallText: string;
   title: string;
   description: string;
+  flexrow?: "row" | "row-reverse"; // اختياري، لتحديد اتجاه الفليكس
+  colum:  "col"|"row-reverse";
 }
 
 const TraditionalSection: React.FC<SectionProps> = ({
@@ -12,9 +14,13 @@ const TraditionalSection: React.FC<SectionProps> = ({
   smallText,
   title,
   description,
+  flexrow = "row",
+  colum
 }) => {
   return (
-    <div className="flex flex-col md:flex-row md:justify-between items-center max-w-[1500px] min-h-[70vh] mx-auto px-6 md:px-16 py-12 gap-8">
+    <div
+      className={`flex flex-${colum} md:flex-${flexrow} md:justify-between items-center max-w-[1500px] min-h-[70vh] mx-auto px-6 md:px-16 py-12 gap-8`}
+    >
       {/* النص على اليمين في الديسكتوب، فوق في الموبايل */}
       <div className="w-full md:w-[45%] text-right">
         <p className="text-md text-[#77533C] mb-2">{smallText}</p>
@@ -23,13 +29,12 @@ const TraditionalSection: React.FC<SectionProps> = ({
       </div>
 
       {/* الصورة على اليسار في الديسكتوب، تحت في الموبايل */}
-   <div className="w-full md:w-[50%] max-w-[760px] max-h-[360px] rounded-3xl overflow-hidden shadow-lg">
+<div className="relative w-full md:w-[50%] max-w-[760px] h-[260px] rounded-3xl overflow-hidden shadow-lg">
   <Image
     src={imageSrc}
     alt={title}
-    width={760}
-    height={260}
-    objectFit="cover"
+    fill
+    style={{ objectFit: "cover",  }}
     className="rounded-3xl"
     priority
   />

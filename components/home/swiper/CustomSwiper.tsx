@@ -34,7 +34,7 @@ export default function ServicesSwiper({
 
   useEffect(() => {
     setIsReady(true);
-  }, [0]);
+  }, []);
 
   return (
 

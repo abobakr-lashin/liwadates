@@ -16,20 +16,17 @@ const CareSection: React.FC<CareSectionProps> = ({
   onButtonClick,
 }) => {
   return (
-    <section className="bg-[#fff5ed] m-auto  flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-16 py-22 gap-18">
+    <section className="bg-[#fff5ed] m-auto  flex flex-col md:flex-row justify-between items-center w-full h-auto px-6 md:px-16 py-22 gap-18">
       {/* الصورة على اليمين في الديسكتوب، تحت في الموبايل */}
-<div className="flex-shrink-0 w-full md:w-[45%] max-w-[760px] max-h-[360px] rounded-3xl overflow-hidden shadow-lg">
+<div className="relative w-full md:w-[50%] max-w-[760px] h-[360px] rounded-3xl overflow-hidden shadow-lg">
   <Image
     src={imageSrc}
     alt={title}
-    width={760}
-    height={360}          // نفس ارتفاع الحاوية
-    objectFit="cover"      // لتغطية الحاوية بدون تشويه
-    className="rounded-3xl"
+    fill
+    style={{ objectFit: "cover", borderRadius: "1.5rem" }} // rounded-3xl = 1.5rem تقريبا
     priority
   />
 </div>
-
 
 
 
