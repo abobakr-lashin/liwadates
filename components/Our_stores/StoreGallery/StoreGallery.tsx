@@ -25,7 +25,7 @@ const StoreGallery: FC = () => {
 
   // اربط الأزرار بعد ما يجهز الـ Swiper فعلاً
   useEffect(() => {
-    const swiper = swiperRef.current as any;
+    const swiper = swiperRef.current ;
     if (!swiper) return;
 
     // Navigation

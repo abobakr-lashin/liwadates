@@ -3,13 +3,13 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import type { Swiper as SwiperInstance, NavigationOptions, PaginationOptions } from "swiper/types";
 import Image from "next/image";
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./style.css";
+import type { Swiper as SwiperInstance, NavigationOptions, PaginationOptions } from "swiper/types";
 
 type Props = { controlsClassName?: string };
 
@@ -53,40 +53,40 @@ export default function HeroCarousel({
           pag.clickable = true;
           swiper.params.pagination = pag;
         }}
-     onSwiper={(swiper) => {
-  // Re-bind refs after DOM is ready (handles Strict Mode double-mount)
+onSwiper={(swiper: SwiperInstance) => {
   setTimeout(() => {
-    // Make sure Navigation exists before touching it
-    if (prevRef.current && nextRef.current && (swiper as any)?.navigation) {
-      const nav =
+    // Navigation
+    if (prevRef.current && nextRef.current && swiper.navigation) {
+      const nav: NavigationOptions =
         typeof swiper.params.navigation === 'object' && swiper.params.navigation
-          ? swiper.params.navigation
-          : ({} as any);
+          ? swiper.params.navigation as NavigationOptions
+          : { enabled: true };
 
       nav.prevEl = prevRef.current;
       nav.nextEl = nextRef.current;
-      (swiper as any).params.navigation = nav;
+      swiper.params.navigation = nav;
 
-      (swiper as any).navigation.init?.();
-      (swiper as any).navigation.update?.();
+      swiper.navigation.init?.();
+      swiper.navigation.update?.();
     }
 
-    // Same for Pagination
-    if (pagRef.current && (swiper as any)?.pagination) {
-      const pag =
+    // Pagination
+    if (pagRef.current && swiper.pagination) {
+      const pag: PaginationOptions =
         typeof swiper.params.pagination === 'object' && swiper.params.pagination
-          ? swiper.params.pagination
-          : ({} as any);
+          ? swiper.params.pagination as PaginationOptions
+          : { enabled: true };
 
       pag.el = pagRef.current;
       pag.clickable = true;
-      (swiper as any).params.pagination = pag;
+      swiper.params.pagination = pag;
 
-      (swiper as any).pagination.init?.();
-      (swiper as any).pagination.update?.();
+      swiper.pagination.init?.();
+      swiper.pagination.update?.();
     }
   });
 }}
+
 
       >
         {slides.map((s) => (

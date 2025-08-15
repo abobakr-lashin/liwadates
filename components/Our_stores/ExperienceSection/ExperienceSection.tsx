@@ -45,8 +45,8 @@ const ExperienceSection: FC = () => {
           <p className="text-sm text-neutral-500">ما الذي يميز تجربة الشراء من متاجرنا؟</p>
 
           <h2 id="experience-title" className="text-2xl font-extrabold leading-snug text-neutral-900 sm:text-3xl">
-            <span className="text-neutral-700">"ليست مجرد زيارة...</span>{' '}
-            <span className="text-amber-700">بل تجربة إماراتية متكاملة"</span>
+            <span className="text-neutral-700">&quotليست مجرد زيارة...</span>{' '}
+            <span className="text-amber-700">بل تجربة إماراتية متكاملة&quot</span>
           </h2>
 
           {/* benefits card */}
