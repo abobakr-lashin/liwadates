@@ -11,7 +11,7 @@ import CustomerTestimonials from "@/components/home/9-CustomerTestimonials/Custo
 import Footer from "@/components/home/10-footer/Footer";
 import Gift from "@/components/home/gift/Gift";
 import ServicesSection from "@/components/home/ServicesSection/ServicesSection";
-import Testnav from "@/components/Text/Testnav";
+// import Testnav from "@/components/Text/Testnav";
 export default function HomePage() {
   return (
 

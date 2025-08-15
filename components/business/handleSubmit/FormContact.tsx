@@ -49,8 +49,9 @@ export default function ContactForm() {
       if (!res.ok) throw new Error('فشل الإرسال');
       setServerMsg('تم الإرسال بنجاح، سنعاود الاتصال بك قريباً.');
       reset();
-    } catch (e) {
-      setServerMsg('حدث خطأ أثناء الإرسال. حاول مجدداً.');
+    } catch (errors) {
+      setServerMsg('حدث خطأ أثناء الإرسال. حاول مجدداً.',);
+      console.log(errors)
     }
   };
 

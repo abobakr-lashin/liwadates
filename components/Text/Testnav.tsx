@@ -13,9 +13,6 @@ import { CSSTransition } from 'react-transition-group';
 
 // أيقونات من react-icons
 import {
-  HiPlus,
-  HiBell,
-  HiChatBubbleLeft,
   HiChevronDown,
   HiCog,
   HiChevronRight,
@@ -88,7 +85,10 @@ const NavItem = memo(function NavItem({ icon, children }: NavItemProps): ReactJS
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (e.key === 'Escape') close();
-      if (e.key === 'Enter' || e.key === ' ') toggle();
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
     },
     [close, toggle]
   );
@@ -116,7 +116,6 @@ const DropdownItem = memo(function DropdownItem({
   leftIcon,
   rightIcon,
   children,
-  goToMenu,
   onClick,
   role = 'menuitem',
 }: DropdownItemProps): ReactJSX.Element {
@@ -143,27 +142,6 @@ function DropdownMenu(): ReactJSX.Element {
   const settingsRef = useRef<HTMLDivElement | null>(null);
   const animalsRef = useRef<HTMLDivElement | null>(null);
 
-  // استخدم ResizeObserver لحساب الارتفاع تلقائيًا — أسرع وأنظف
-  useEffect(() => {
-    if (!dropdownRef.current) return;
-
-    const ro = new ResizeObserver(() => {
-      const current =
-        (activeMenu === 'main' && mainRef.current) ||
-        (activeMenu === 'settings' && settingsRef.current) ||
-        (activeMenu === 'animals' && animalsRef.current);
-
-      if (current) {
-        const h = current.offsetHeight;
-        setMenuHeight((prev) => (prev === h ? prev : h));
-      }
-    });
-
-    ro.observe(dropdownRef.current);
-    return () => ro.disconnect();
-    // ملاحظة: مراقبة الحاوية تكفي لأن المحتوى يتبدل داخلها
-  }, [activeMenu]);
-
   const calcHeight = useCallback((el: HTMLElement) => {
     const h = el.offsetHeight;
     setMenuHeight((prev) => (prev === h ? prev : h));
@@ -171,6 +149,39 @@ function DropdownMenu(): ReactJSX.Element {
 
   const go = useCallback((key: MenuKey) => setActiveMenu(key), []);
 
+  // قياس تلقائي مع تبدّل القوائم
+  useEffect(() => {
+    // تعيين ارتفاع مبدئي عند أول تحميل
+    const current =
+      (activeMenu === 'main' && mainRef.current) ||
+      (activeMenu === 'settings' && settingsRef.current) ||
+      (activeMenu === 'animals' && animalsRef.current);
+    if (current) calcHeight(current);
+  }, [activeMenu, calcHeight]);
+
+  // مراقبة تغير الحجم بواسطة ResizeObserver (اختياري لكنه لطيف)
+useEffect(() => {
+  // لا تكمّل إن لم نكن في المتصفح أو لا يوجد ResizeObserver أو لا يوجد العنصر
+  if (typeof window === "undefined" || !("ResizeObserver" in window) || !dropdownRef.current) {
+    return;
+  }
+
+  const ro = new ResizeObserver(() => {
+    const current =
+      (activeMenu === "main" && mainRef.current) ||
+      (activeMenu === "settings" && settingsRef.current) ||
+      (activeMenu === "animals" && animalsRef.current);
+
+    if (current) {
+      const h = current.offsetHeight;
+      setMenuHeight((prev) => (prev === h ? prev : h));
+    }
+  });
+
+  ro.observe(dropdownRef.current);
+
+  return () => ro.disconnect();
+}, [activeMenu]);
   return (
     <div
       className="dropdown"
@@ -186,7 +197,9 @@ function DropdownMenu(): ReactJSX.Element {
         classNames="menu-primary"
         unmountOnExit
         nodeRef={mainRef}
-        onEnter={(node: HTMLElement) => calcHeight(node)}
+        onEnter={() => {
+          if (mainRef.current) calcHeight(mainRef.current);
+        }}
       >
         <div className="menu" ref={mainRef}>
           <DropdownItem onClick={() => {}}>My Profile</DropdownItem>
@@ -216,7 +229,9 @@ function DropdownMenu(): ReactJSX.Element {
         classNames="menu-secondary"
         unmountOnExit
         nodeRef={settingsRef}
-        onEntered={(node: HTMLElement) => calcHeight(node)}
+        onEntered={() => {
+          if (settingsRef.current) calcHeight(settingsRef.current);
+        }}
       >
         <div className="menu" ref={settingsRef}>
           <DropdownItem
@@ -241,7 +256,9 @@ function DropdownMenu(): ReactJSX.Element {
         classNames="menu-secondary"
         unmountOnExit
         nodeRef={animalsRef}
-        onEntered={(node: HTMLElement) => calcHeight(node)}
+        onEntered={() => {
+          if (animalsRef.current) calcHeight(animalsRef.current);
+        }}
       >
         <div className="menu" ref={animalsRef}>
           <DropdownItem
