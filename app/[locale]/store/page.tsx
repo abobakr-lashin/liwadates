@@ -8,7 +8,7 @@ import React from 'react'
 export default function page() {
     return (
         <div>
-            {/* <Navbar /> */}
+            <Navbar />
             <Banner
                 urlimg={"/Service_Stages/banar.jpg"}
                 brightness="brightness-70"
