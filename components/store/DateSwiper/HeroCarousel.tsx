@@ -53,21 +53,41 @@ export default function HeroCarousel({
           pag.clickable = true;
           swiper.params.pagination = pag;
         }}
-        onSwiper={(swiper) => {
-          // بعد ما DOM يجهز، نعيد تهيئة الملحقات (حل React/StrictMode)
-          setTimeout(() => {
-            if (prevRef.current && nextRef.current) {
-              swiper.navigation.destroy();
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }
-            if (pagRef.current) {
-              swiper.pagination.destroy();
-              swiper.pagination.init();
-              swiper.pagination.update();
-            }
-          });
-        }}
+     onSwiper={(swiper) => {
+  // Re-bind refs after DOM is ready (handles Strict Mode double-mount)
+  setTimeout(() => {
+    // Make sure Navigation exists before touching it
+    if (prevRef.current && nextRef.current && (swiper as any)?.navigation) {
+      const nav =
+        typeof swiper.params.navigation === 'object' && swiper.params.navigation
+          ? swiper.params.navigation
+          : ({} as any);
+
+      nav.prevEl = prevRef.current;
+      nav.nextEl = nextRef.current;
+      (swiper as any).params.navigation = nav;
+
+      (swiper as any).navigation.init?.();
+      (swiper as any).navigation.update?.();
+    }
+
+    // Same for Pagination
+    if (pagRef.current && (swiper as any)?.pagination) {
+      const pag =
+        typeof swiper.params.pagination === 'object' && swiper.params.pagination
+          ? swiper.params.pagination
+          : ({} as any);
+
+      pag.el = pagRef.current;
+      pag.clickable = true;
+      (swiper as any).params.pagination = pag;
+
+      (swiper as any).pagination.init?.();
+      (swiper as any).pagination.update?.();
+    }
+  });
+}}
+
       >
         {slides.map((s) => (
           <SwiperSlide key={s.id} className="!w-full">

@@ -29,7 +29,7 @@ export const navLinks: NavLink[] = [
       },
     ],
   },
-  { label: " محلاتنا", href: "/Farmer_services1" },
+  { label: " محلاتنا", href: "/Our_stores" },
   { label: "خدمات المزارعين", href: "/Farmer_services" },
 
 
