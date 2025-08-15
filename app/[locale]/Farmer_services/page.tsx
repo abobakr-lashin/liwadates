@@ -15,7 +15,13 @@ export default function page() {
     <div>
       <Navbar />
 
-      <Banner urlimg={"/Farmer_services/hero.jpg"} brightness="brightness-70" title={"خدمات المزارعين"} pratone={"الرئيسية"} pratTow={"خدمات المزارعين"} hrefUrl={"Farmer_services"} />
+      <Banner
+        urlimg={"/Farmer_services/hero.jpg"}
+        brightness="brightness-70"
+        title={"خدمات المزارعين"}
+        pratone={"الرئيسية"} pratTow={"خدمات المزارعين"}
+        hrefUrl={"Farmer_services"} prattherebol={false}
+        pratThere={""} hrefUrl2={""} itemsStart={"items-start"} />
       <SectionWithImage
         flexrow="row"
         colum="col"

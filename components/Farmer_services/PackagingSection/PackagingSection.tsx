@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { GiOnTarget } from "react-icons/gi";
 import GoalSection from "./GoalSection";
+import Link from "next/link";
+
 
 interface PackagingSectionProps {
   imageSrc: string;
@@ -41,12 +43,12 @@ const PackagingSection: React.FC<PackagingSectionProps> = ({
 
         <div className="flex flex-wrap gap-4">
           {[
-            { label: "خطوات التصنيع", primary: true },
-            { label: "فيديو موضح للخطوات", primary: false },
-            { label: "واتساب", primary: false },
-          ].map(({ label, primary }) => (
+            { label: "خطوات التصنيع", primary: true ,href:"/Service_Stages"},
+            { label: "فيديو موضح للخطوات", primary: false,href:"/Service_Stages" },
+            { label: "واتساب", primary: false ,href:"/Service_Stages"},
+          ].map(({ label, primary,href }) => (
+            <Link href={href} key={label} className="w-full sm:w-auto">
             <button
-              key={label}
               className={`relative cursor-pointer overflow-hidden px-8 sm:px-10 md:px-12 py-3 sm:py-4 rounded-full border-2 font-medium group active:scale-95 transition-transform fade-in-down delay-500
                 ${
                   primary
@@ -64,6 +66,7 @@ const PackagingSection: React.FC<PackagingSectionProps> = ({
               group-hover:opacity-100 rounded-full"
               ></span>
             </button>
+            </Link>
           ))}
         </div>
       </div>

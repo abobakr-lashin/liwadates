@@ -1,0 +1,14 @@
+/* نقاط بيضاء صغيرة مع حركة ناعمة */
+.hero-pagination .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: rgba(255,255,255,.6);
+  opacity: 1;
+  margin: 0 3px !important;
+  transition: transform .2s ease, background-color .2s ease;
+  border-radius: 9999px;
+}
+.hero-pagination .swiper-pagination-bullet-active {
+  background: #fff;
+  transform: scale(1.15);
+}

@@ -1,4 +1,4 @@
-import ContactForm from '@/components/business/handleSubmit/handleSubmit '
+import ContactForm from '@/components/business/handleSubmit/handleSubmit'
 import InsightsSection from '@/components/business/InsightsSection/InsightsSection'
 import OurSolutions from '@/components/business/OurSolutions/OurSolutions'
 import WhyChooseUs from '@/components/business/WhyChooseUs/WhyChooseUs'
@@ -15,7 +15,10 @@ export default function page() {
       <Navbar />
       <Banner urlimg={"/business/business_Banner.jpg"}
       brightness='brightness-70'
-       title={"خدمات قطاع الأعمال "} pratone={"الرئيسية"} pratTow={" خدمات قطاع الأعمال "} hrefUrl={"business"} />
+      title={"خدمات قطاع الأعمال "}
+      pratone={"الرئيسية"} pratTow={" خدمات قطاع الأعمال "}
+      hrefUrl={"business"} pratThere={''} prattherebol={false}
+      hrefUrl2={''} itemsStart={'items-start'} />
       <PalmCareSection
           widthimg="760px"
         heightimg="360px"
