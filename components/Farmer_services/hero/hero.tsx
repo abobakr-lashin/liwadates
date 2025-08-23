@@ -23,7 +23,7 @@ itemsStart
     }
   : BannerProps) => {
   return (
-    <div className="relative w-full h-48 md:h-64 lg:h-94 overflow-hidden rounded-md">
+    <div className="relative w-full h-48 md:h-64 lg:h-84 overflow-hidden rounded-md">
       <Image
         src={urlimg}
         alt="خدمات المزارعين"
