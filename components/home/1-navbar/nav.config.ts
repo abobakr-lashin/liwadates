@@ -13,7 +13,7 @@ export interface NavLink {
 export const navLinks: NavLink[] = [
   // { label: "الرئيسية", href: "/" },
    { label: "المتجر", href: "/store" },
-     { label: " هدايا الؤسسات", href: "/business1" },
+     { label: " هدايا الؤسسات", href: "/Corporate_gifts" },
     //  { label: "خدمات قطاع الأعمال", href: "/business" },
        {
     label: "خدمات قطاع الأعمال",

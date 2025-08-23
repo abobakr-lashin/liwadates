@@ -1,20 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export type Product = {
-  id: string;
-  name: string;
-  priceAED: number | string;
-  weight?: string;
-  img: string;
-  ribbon?: string;
-    description?: string;
-};
-
+import {Product} from "@/components/store/DateSwiper/products";
 export default function ProductCard({ p }: { p: Product }) {
+  console.log(p)
   return (
     <div className="card group">
       <div className="relative aspect-[3/3]">
+      <Link href={`/store/${p.id}`} className="absolute inset-0">
         <Image src={p.img} alt={p.name} fill className="object-cover" />
+        </Link>
+
         {p.ribbon && (
           <span className="absolute top-2 start-2 bg-amber-600 text-white text-xs px-2 py-1 rounded">
             {p.ribbon}

@@ -52,7 +52,7 @@ const StoreGallery: FC = () => {
   }, []);
 
   return (
-    <section dir="rtl" className="relative mx-auto max-w-7xl px-4 py-20">
+    <section className="relative mx-auto max-w-7xl px-4 py-20">
       <h2 className="mb-8 text-center text-xl font-semibold text-neutral-900 sm:text-2xl">
         معرض صور محلاتنا
       </h2>

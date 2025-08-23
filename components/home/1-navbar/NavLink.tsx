@@ -92,12 +92,15 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <button aria-label="عرض الإطار">
-            <Image src={Frame} alt="Frame Icon" width={50} height={50} />
-          </button>
+          <Link aria-label="عرض المفضله "            href={buildHref(locale, "/Favorites")}
+>
 
+            <Image src={Frame} alt="Frame Icon" width={50} height={50} />
+          </Link>
+<Link aria-label="عرض السلة"           href={buildHref(locale, "/Cart")} >
           <IconCard />
 
+          </Link>
           <div
             className="relative group flex items-center gap-1 cursor-pointer"
             aria-label="تبديل اللغة"
@@ -105,7 +108,8 @@ const Navbar: React.FC = () => {
             <LanguageSwitcher />
           </div>
 
-          <button
+          <Link
+          href={buildHref(locale, "/Contact_us")}
             className="relative cursor-pointer overflow-hidden px-14 py-3 rounded-full bg-[#9b643a] text-white font-medium group active:scale-95 transition-transform"
             aria-label="تواصل معنا"
           >
@@ -117,7 +121,7 @@ const Navbar: React.FC = () => {
                group-hover:translate-x-0 group-hover:translate-y-0
                group-hover:opacity-100 rounded-full cursor-pointer"
             />
-          </button>
+          </Link>
 
           <span className="flex items-center bg-[#E5D6C5] rounded-full w-12 h-12 justify-center">
             <svg width="38" height="38" fill="#A97C50" viewBox="0 0 24 24" aria-hidden="true">

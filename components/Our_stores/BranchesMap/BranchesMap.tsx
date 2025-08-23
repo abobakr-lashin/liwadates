@@ -22,7 +22,7 @@ const branches: Branch[] = [
 
 export default function BranchesMap() {
   return (
-    <section dir="rtl" className="relative mx-auto max-w-7xl px-4 py-10">
+    <section  className="relative mx-auto max-w-7xl px-4 py-10">
       <div className="relative overflow-hidden rounded-2xl">
         {/* صورة الخريطة */}
         <div className="relative h-[280px] sm:h-[360px] md:h-[420px] lg:h-[460px]">

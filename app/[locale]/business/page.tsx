@@ -7,7 +7,6 @@ import PalmCareSection from '@/components/Farmer_services/PalmCareSection/PalmCa
 import SectionWithImage from '@/components/Farmer_services/SectionWithImage/SectionWithImage'
 import Navbar from '@/components/home/1-navbar/NavLink'
 import Footer from '@/components/home/10-footer/Footer'
-import React from 'react'
 
 export default function page() {
   return (

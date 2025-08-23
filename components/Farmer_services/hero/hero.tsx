@@ -28,7 +28,7 @@ itemsStart
         src={urlimg}
         alt="خدمات المزارعين"
         fill
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", objectPosition: "center center" }}
         className={brightness}
         priority
       />

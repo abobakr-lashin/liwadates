@@ -14,7 +14,7 @@ export default function BranchComingSoonCard({
   className = '',
 }: Props) {
   return (
-    <section className={`w-full bg-[#f5f5f5] py-10 ${className}`} dir="rtl">
+    <section className={`w-full bg-[#f5f5f5] py-10 ${className}`} >
       <div className="max-w-7xl mx-auto rounded-[22px] bg-white shadow-[0_12px_28px_rgba(0,0,0,0.06)]">
         {/* صف أفقي: النص يمين + الصورة يساره */}
         <div className="flex items-center justify-start gap-4 sm:gap-6 px-5 sm:px-7 py-4 sm:py-6">

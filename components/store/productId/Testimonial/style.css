@@ -1,0 +1,11 @@
+/* Testimonials carousel */
+.swiper-pagination-bullets {
+  bottom: 0.25rem !important;
+}
+.swiper-pagination-bullet {
+  opacity: .4;
+  background: #c8b79f; /* soft beige bullet */
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
